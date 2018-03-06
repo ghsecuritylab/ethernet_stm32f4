@@ -84,6 +84,7 @@ ip4_addr_t gw;
   */
 void MX_LWIP_Init(void)
 {
+  printf("Initializing LWIP\n");
   /* Initilialize the LwIP stack without RTOS */
   lwip_init();
 
@@ -93,23 +94,29 @@ void MX_LWIP_Init(void)
   gw.addr = 0;
 
   /* add the network interface (IPv4/IPv6) without RTOS */
+  printf("Adding the network interface\n");
   netif_add(&gnetif, &ipaddr, &netmask, &gw, NULL, &ethernetif_init, &ethernet_input);
 
   /* Registers the default network interface */
+  printf("Adding Register the default network interface\n");
   netif_set_default(&gnetif);
 
+  printf("Checking if the net link is up\n");
   if (netif_is_link_up(&gnetif))
   {
+    printf("Net link is up. Setting it as up\n");
     /* When the netif is fully configured this function must be called */
     netif_set_up(&gnetif);
   }
   else
   {
+    printf("Net link is down. Setting it as down\n");
     /* When the netif link is down this function must be called */
     netif_set_down(&gnetif);
   }
 
   /* Start DHCP negotiation for a network interface (IPv4) */
+  printf("Starting DHCP\n");
   dhcp_start(&gnetif);
 
 /* USER CODE BEGIN 3 */
