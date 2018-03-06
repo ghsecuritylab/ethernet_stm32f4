@@ -1,10 +1,15 @@
 #MicroXplorer Configuration settings - do not modify
 ETH.AutoNegotiation=ETH_AUTONEGOTIATION_ENABLE
-ETH.IPParameters=MediaInterface,AutoNegotiation,PHY_Name_RMII,PhyAddress,PHY_User_Name
+ETH.IPParameters=MediaInterface,AutoNegotiation,PHY_Name_RMII,PhyAddress,PHY_User_Name,PHY_SR,PHY_SPEED_STATUS,PHY_DUPLEX_STATUS,PHY_READ_TO,PHY_WRITE_TO
 ETH.MediaInterface=ETH_MEDIA_INTERFACE_RMII
+ETH.PHY_DUPLEX_STATUS=0x0010
 ETH.PHY_Name_RMII=userPHY
+ETH.PHY_READ_TO=0x0004FFFF
+ETH.PHY_SPEED_STATUS=0x0004
+ETH.PHY_SR=0x31
 ETH.PHY_User_Name=LAN8720A
-ETH.PhyAddress=31
+ETH.PHY_WRITE_TO=0x0004FFFF
+ETH.PhyAddress=0
 FREERTOS.FootprintOK=true
 FREERTOS.IPParameters=Tasks01,FootprintOK
 FREERTOS.Tasks01=defaultTask,0,128,StartDefaultTask,Default,NULL
