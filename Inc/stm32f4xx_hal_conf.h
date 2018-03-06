@@ -190,15 +190,15 @@
 
 /* Section 2: PHY configuration section */
 
-/* LAN8742A_PHY_ADDRESS Address*/ 
-#define LAN8742A_PHY_ADDRESS           1U
+/* LAN8720A_PHY_ADDRESS Address*/ 
+#define LAN8720A_PHY_ADDRESS           0U
 /* PHY Reset delay these values are based on a 1 ms Systick interrupt*/ 
 #define PHY_RESET_DELAY                 ((uint32_t)0x000000FFU)
 /* PHY Configuration delay */
 #define PHY_CONFIG_DELAY                ((uint32_t)0x00000FFFU)
 
-#define PHY_READ_TO                     ((uint32_t)0x0000FFFFU)
-#define PHY_WRITE_TO                    ((uint32_t)0x0000FFFFU)
+#define PHY_READ_TO                     ((uint32_t)0x0004FFFFU)
+#define PHY_WRITE_TO                    ((uint32_t)0x0004FFFFU)
 
 /* Section 3: Common PHY Registers */
 
@@ -221,13 +221,13 @@
 #define PHY_JABBER_DETECTION            ((uint16_t)0x0002U)  /*!< Jabber condition detected            */
   
 /* Section 4: Extended PHY Registers */
-#define PHY_SR                          ((uint16_t)0x10U)    /*!< PHY status register Offset                      */
+#define PHY_SR                          ((uint16_t)31U)    /*!< PHY status register Offset                      */
 
-#define PHY_SPEED_STATUS                ((uint16_t)0x0002U)  /*!< PHY Speed mask                                  */
-#define PHY_DUPLEX_STATUS               ((uint16_t)0x0004U)  /*!< PHY Duplex mask                                 */
-
-#define PHY_ISFR                        ((uint16_t)0x000BU)    /*!< PHY Interrupt Source Flag register Offset   */
-#define PHY_ISFR_INT4                   ((uint16_t)0x000BU)  /*!< PHY Link down inturrupt       */  
+#define PHY_SPEED_STATUS                ((uint16_t)0x0004U)  /*!< PHY Speed mask                                  */
+#define PHY_DUPLEX_STATUS               ((uint16_t)0x0010U)  /*!< PHY Duplex mask                                 */
+/* USER CODE BEGIN PRIVATE DEF */
+#define PHY_ISFR                        ((uint16_t)29U)  /*!< PHY Interrupt mask                                  */
+#define PHY_INT_LINK                    ((uint16_t)0x0010U) /*!< PHY Link Down Interrupt  
 
 /* ################## SPI peripheral configuration ########################## */
 
